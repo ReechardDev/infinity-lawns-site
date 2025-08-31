@@ -1,23 +1,22 @@
 // components/Gallery.jsx
-export default function Gallery({ photos = [] }) {
+export default function Gallery({ images = [] }) {
   return (
-    <section id="gallery" className="py-16 md:py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Before & After Gallery</h2>
+    <section className="py-16 bg-white">
+      <div className="mx-auto max-w-7xl px-4">
+        <h2 className="text-center text-2xl md:text-3xl font-bold">Before &amp; After Gallery</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-6">
-          {photos.map((photo, i) => (
-            <div
-              key={i}
-              className="rounded-2xl overflow-hidden shadow hover:shadow-lg transition-shadow bg-white"
-            >
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {images.map((src, i) => (
+            <figure key={i} className="group overflow-hidden rounded-2xl border bg-white shadow-sm relative">
               <img
-                src={photo.src}
-                alt={photo.alt}
-                className="w-full h-48 object-cover"
-                loading="lazy"
+                src={src}
+                alt=""
+                className="h-56 w-full object-cover transition duration-300 group-hover:scale-105"
               />
-            </div>
+              <figcaption className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-black/40 to-transparent p-4 opacity-0 transition group-hover:opacity-100">
+                <span className="text-white text-sm">Tap to view</span>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>
