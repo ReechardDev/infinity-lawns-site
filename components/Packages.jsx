@@ -3,7 +3,7 @@ import PackageCard from "@/components/PackageCard";
 
 export default function Packages() {
   return (
-    <section id="packages" className="scroll-mt-24 py-16 md:py-24 bg-white">
+    <section id="packages" className="scroll-mt-24 py-16 md:py-24 bg-slate-50 bg-radial-emerald">
       <div className="mx-auto max-w-7xl px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center">Simple Packages, Clear Value</h2>
 

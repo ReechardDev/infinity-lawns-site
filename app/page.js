@@ -20,28 +20,19 @@ const galleryImages = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-white">
+      {/* Hero with subtle grid + radial accent */}
+      <section className="bg-white bg-grid-slate-100 bg-radial-emerald">
         <div className="mx-auto max-w-7xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <h1 className="text-3xl md:text-4xl font-extrabold">
-              Infinity Lawns &amp; Beyond
-            </h1>
+            <h1 className="text-3xl md:text-4xl font-extrabold">Infinity Lawns &amp; Beyond</h1>
             <p className="mt-3 text-slate-600">
-              Denver’s trusted lawn care & snow removal. Fast quotes, flexible
-              scheduling, friendly support.
+              Denver’s trusted lawn care & snow removal. Fast quotes, flexible scheduling, friendly support.
             </p>
             <div className="mt-6 flex gap-3">
-              <a
-                href="#booking"
-                className="rounded-full bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
-              >
+              <a href="#booking" className="rounded-full bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700">
                 Get a Free Quote
               </a>
-              <a
-                href="#services"
-                className="rounded-full border px-6 py-3 font-semibold text-slate-700 hover:bg-slate-100"
-              >
+              <a href="#services" className="rounded-full border px-6 py-3 font-semibold text-slate-700 hover:bg-slate-100">
                 Our Services
               </a>
             </div>

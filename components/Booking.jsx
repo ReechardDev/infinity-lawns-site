@@ -3,7 +3,7 @@ import BookingForm from "@/components/BookingForm";
 
 export default function Booking() {
   return (
-    <section id="booking" className="scroll-mt-24 py-16 md:py-24 bg-slate-50">
+    <section id="booking" className="scroll-mt-24 py-16 md:py-24 bg-slate-50 bg-grid-slate-100">
       <div className="mx-auto max-w-7xl px-4">
         <h2 className="text-center text-2xl md:text-3xl font-bold">Request a Free Quote</h2>
 
