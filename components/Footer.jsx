@@ -1,5 +1,7 @@
 // components/Footer.jsx
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="mt-16">
       {/* CTA band */}
@@ -31,6 +33,7 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-4 py-6 flex items-center justify-between">
           <div className="font-bold">
             <span className="text-emerald-400">Infinity</span> Lawns &amp; Beyond
+            <span className="ml-2 text-xs font-normal text-slate-400">© {year}</span>
           </div>
           <nav className="text-sm flex gap-6">
             <a href="#services" className="hover:text-white">Services</a>
