@@ -3,7 +3,7 @@ import PackageCard from "@/components/PackageCard";
 
 export default function Packages() {
   return (
-    <section id="packages" className="scroll-mt-24 py-16 md:py-24 bg-slate-50 bg-radial-emerald">
+    <section id="packages" className="scroll-mt-24 py-16 md:py-24 bg-emerald-50">
       <div className="mx-auto max-w-7xl px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center">Simple Packages, Clear Value</h2>
 
@@ -41,7 +41,7 @@ export default function Packages() {
           />
         </div>
 
-        <p className="mt-4 text-center text-sm text-slate-500">
+        <p className="mt-4 text-center text-sm text-slate-600">
           Final pricing depends on lawn size, slope, access, and add-ons. Quotes are fast and free.
         </p>
       </div>

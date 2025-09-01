@@ -1,7 +1,7 @@
 // components/FAQ.jsx
 const items = [
   { q: "How fast can you schedule a visit?", a: "Most visits are scheduled within 24–48 hours. Snow events are prioritized same day." },
-  { q: "Do you carry insurance?", a: "Yes—crew and equipment are fully insured. Certificates available on request." },
+  { q: "Do you carry insurance?", a: "Yes crew and equipment are fully insured. Certificates available on request." },
   { q: "Do you offer recurring service?", a: "Weekly, bi-weekly, and monthly plans are available with priority scheduling." },
   { q: "Which areas do you cover?", a: "Denver Metro, Cherry Creek, Parker, Centennial, and Lone Tree." },
 ];

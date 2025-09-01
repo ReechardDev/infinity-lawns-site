@@ -36,3 +36,7 @@ html { scroll-behavior: smooth; }
 .bg-radial-emerald{
   background: radial-gradient(1000px 500px at 85% -120px, rgba(16,185,129,.15), transparent 70%);
 }
+/* stronger hero radial */
+.bg-radial-emerald-strong{
+  background: radial-gradient(1200px 650px at 65% -140px, rgba(16,185,129,.28), transparent 70%);
+}
