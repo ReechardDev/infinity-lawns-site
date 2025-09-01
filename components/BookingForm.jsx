@@ -1,75 +1,76 @@
-// components/BookingForm.jsx
 "use client";
-
-function input() {
-  return "w-full h-11 border border-slate-300 rounded-xl px-3 bg-white text-slate-900";
-}
+// components/BookingForm.jsx
+import { useState } from "react";
 
 export default function BookingForm() {
+  const [state, setState] = useState({ status: "idle", message: "" });
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setState({ status: "loading", message: "" });
+
+    // Fake submit for now
+    setTimeout(() => {
+      setState({ status: "success", message: "Thanks! We’ll contact you shortly." });
+      e.currentTarget.reset();
+    }, 600);
+  };
+
   return (
-    <form
-      action="https://formsubmit.co/YOUREMAIL@example.com"
-      method="POST"
-      className="grid gap-3"
-    >
-      {/* FormSubmit settings */}
-      <input type="hidden" name="_subject" value="New Booking Request - Infinity Lawns" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_next" value="http://localhost:3000/booking" />
+    <form onSubmit={onSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input name="name" placeholder="Full Name *" required
+        className="w-full rounded-xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500" />
+      <input type="email" name="email" placeholder="Email *" required
+        className="w-full rounded-xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500" />
+      <input name="phone" placeholder="Phone *" required
+        className="w-full rounded-xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500" />
+      <input name="address" placeholder="Street Address *" required
+        className="w-full rounded-xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500" />
 
-      <div className="grid sm:grid-cols-2 gap-3">
-        <input name="Full Name" placeholder="Full Name *" required className={input()} />
-        <input name="Email" type="email" placeholder="Email *" required className={input()} />
-      </div>
+      <select name="service" defaultValue="" required
+        className="w-full rounded-xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500">
+        <option value="" disabled>Select Service *</option>
+        <option>Lawn Mowing & Maintenance</option>
+        <option>Landscape Design & Install</option>
+        <option>Snow Removal</option>
+        <option>Hauling / Handyman</option>
+        <option>Irrigation</option>
+        <option>Retaining Walls & Pavers</option>
+      </select>
 
-      <div className="grid sm:grid-cols-2 gap-3">
-        <input name="Phone" placeholder="Phone *" required className={input()} />
-        <input name="Street Address" placeholder="Street Address *" required className={input()} />
-      </div>
+      <select name="frequency" defaultValue="One-time"
+        className="w-full rounded-xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500">
+        <option>One-time</option>
+        <option>Weekly</option>
+        <option>Bi-Weekly</option>
+        <option>Monthly</option>
+      </select>
 
-      <div className="grid sm:grid-cols-2 gap-3">
-        <select name="Select Service" required className={input()}>
-          <option value="">Select Service *</option>
-          <option>Lawn Mowing & Maintenance</option>
-          <option>Landscaping & Design</option>
-          <option>Snow Removal</option>
-          <option>Hauling / Handyman</option>
-          <option>Irrigation</option>
-        </select>
-        <select name="Frequency" className={input()}>
-          <option>One-time</option>
-          <option>Weekly</option>
-          <option>Bi-weekly</option>
-          <option>Monthly</option>
-        </select>
-      </div>
+      <input type="date" name="date"
+        className="w-full rounded-xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500" />
 
-      <div className="grid sm:grid-cols-2 gap-3">
-        <input name="Preferred Date" type="date" required className={input()} />
-        <select name="Service Area" className={input()}>
-          <option>Denver Metro</option>
-          <option>Cherry Creek</option>
-          <option>Parker</option>
-          <option>Centennial</option>
-          <option>Lone Tree</option>
-        </select>
-      </div>
+      <select name="area" defaultValue="Denver Metro"
+        className="w-full rounded-xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500">
+        <option>Denver Metro</option>
+        <option>Cherry Creek</option>
+        <option>Parker</option>
+        <option>Centennial</option>
+        <option>Lone Tree</option>
+      </select>
 
-      <textarea
-        name="Notes"
-        placeholder="Notes (gates, pets, preferences…)"
-        rows={4}
-        className={`${input()} h-auto py-2`}
-      />
+      <textarea name="notes" rows={4} placeholder="Notes (gates, pets, preferences…)"
+        className="md:col-span-2 w-full rounded-xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500" />
 
-      <button type="submit" className="h-12 rounded-xl bg-emerald-600 text-white font-extrabold border border-emerald-600 hover:bg-emerald-700">
-        Request Quote / Book
+      <button type="submit" disabled={state.status === "loading"}
+        className="md:col-span-2 mt-2 inline-flex w-full items-center justify-center rounded-full bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700 disabled:opacity-60">
+        {state.status === "loading" ? "Sending..." : "Request Quote / Book"}
       </button>
 
-      <div className="text-xs text-slate-500">
-        * By submitting, you agree to be contacted regarding your request.
-      </div>
+      {state.status !== "idle" && (
+        <p className={`md:col-span-2 text-sm ${state.status === "success" ? "text-emerald-700" : "text-red-600"}`}>
+          {state.message}
+        </p>
+      )}
     </form>
   );
 }
