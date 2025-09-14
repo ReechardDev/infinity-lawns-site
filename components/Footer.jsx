@@ -35,12 +35,12 @@ export default function Footer() {
             <span className="text-emerald-400">Infinity</span> Lawns &amp; Beyond
             <span className="ml-2 text-xs font-normal text-slate-400">© {year}</span>
           </div>
-          <nav className="text-sm flex gap-6">
-            <a href="#services" className="hover:text-white">Services</a>
-            <a href="#packages" className="hover:text-white">Packages</a>
-            <a href="#booking" className="hover:text-white">Book</a>
-            <a href="#contact" className="hover:text-white">Contact</a>
-          </nav>
+<nav className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600">
+  <a href="#services" className="hover:text-gray-900">Services</a>
+  <a href="#packages" className="hover:text-gray-900">Packages</a>
+  <a href="#book" className="hover:text-gray-900">Book</a>
+  <a href="#contact" className="hover:text-gray-900">Contact</a>
+</nav>
         </div>
       </div>
     </footer>
