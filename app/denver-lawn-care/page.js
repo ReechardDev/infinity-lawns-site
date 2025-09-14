@@ -40,13 +40,8 @@ export default function Page() {
       </div>
 
       <footer className="pt-4 text-sm">
-        <a href="tel:+13035550112" className="underline">
-          (303) 555-0112
-        </a>{" "}
-        •{" "}
-        <a className="underline" href="mailto:info@infinitylawnsco.com">
-          info@infinitylawnsco.com
-        </a>
+        <a href="tel:+13035550112" className="underline">(303) 555-0112</a> •{" "}
+        <a className="underline" href="mailto:info@infinitylawnsco.com">info@infinitylawnsco.com</a>
       </footer>
     </section>
   );

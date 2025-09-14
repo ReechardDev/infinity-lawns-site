@@ -60,6 +60,28 @@ export default function RootLayout({ children }) {
     }
   };
 
+  <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Infinity Lawns & Beyond",
+      "image": "https://infinity-lawns-site.vercel.app/og.jpg",
+      "telephone": "(303) 555-0112",
+      "areaServed": ["Denver Metro","Cherry Creek","Parker","Centennial","Lone Tree"],
+      "priceRange": "$$",
+      "url": "https://infinity-lawns-site.vercel.app/",
+      "sameAs": [],
+      "address": { "@type": "PostalAddress", "addressLocality": "Denver", "addressRegion": "CO" },
+      "openingHours": "Mo-Sa 07:00-19:00",
+      "currenciesAccepted": "USD",
+      "paymentAccepted": "Cash, Credit Card, Apple Pay"
+    })
+  }}
+/>
+
+
   return (
     <html lang="en">
       <head>

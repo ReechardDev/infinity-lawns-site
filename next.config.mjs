@@ -1,34 +1,29 @@
-// next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
+    const csp = [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob:",
+      "font-src 'self' data:",
+      "connect-src 'self'",
+      "frame-ancestors 'none'",
+      "base-uri 'self'",
+      "form-action 'self' mailto:"
+    ].join("; ");
     return [
       {
         source: "/(.*)",
         headers: [
-          { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
-          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Content-Security-Policy", value: csp },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-          { key: "X-Frame-Options", value: "DENY" }, // remove if you need to embed your site elsewhere
-          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
-          { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
-          {
-            key: "Content-Security-Policy",
-            value: [
-              "default-src 'self'",
-              "img-src 'self' data: https:",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.vercel.app vercel.live",
-              "style-src 'self' 'unsafe-inline' https:",
-              "font-src 'self' data: https:",
-              "connect-src 'self' https:",
-              "frame-ancestors 'self'"
-            ].join("; ")
-          },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Permissions-Policy", value: "geolocation=(), microphone=(), camera=()" },
+          { key: "Strict-Transport-Security", value: "max-age=15552000; includeSubDomains; preload" },
         ],
       },
     ];
   },
 };
-
 export default nextConfig;
