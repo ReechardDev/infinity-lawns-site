@@ -4,9 +4,32 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata = {
+  metadataBase: new URL("https://infinity-lawns-site.vercel.app"),
   title: "Infinity Lawns & Beyond",
   description: "Professional lawn care & snow removal in Denver, CO",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Infinity Lawns & Beyond",
+    description: "Professional lawn care & snow removal in Denver, CO",
+    url: "/",
+    siteName: "Infinity Lawns & Beyond",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Infinity Lawns & Beyond",
+    description: "Professional lawn care & snow removal in Denver, CO",
+  },
   icons: { icon: "/favicon.ico" },
+};
+
+// Next.js 15: themeColor belongs in the viewport export
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#167a7a" },
+    { media: "(prefers-color-scheme: dark)",  color: "#167a7a" },
+  ],
 };
 
 export default function RootLayout({ children }) {
@@ -40,9 +63,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* LocalBusiness JSON-LD for rich local SEO */}
         <script
           type="application/ld+json"
-          // Inject schema as raw JSON string
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
@@ -50,7 +73,6 @@ export default function RootLayout({ children }) {
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
-          {/* Footer lives ONLY here → prevents double footer */}
           <Footer />
         </div>
       </body>
