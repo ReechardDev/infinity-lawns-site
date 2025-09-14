@@ -1,6 +1,6 @@
 // components/Contact.jsx
 "use client";
-import { Phone, Mail, CheckCircle2, MapPin } from "lucide-react";
+import { Phone, Mail, CheckCircle2, MapPin, ChevronRight } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -67,6 +67,7 @@ export default function Contact() {
         </div>
 
         {/* New: Map + Site Map row */}
+        <hr className="mt-12 border-emerald-100/60" />
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           <MapEmbed />
           <SiteMapBlock />
@@ -107,26 +108,61 @@ function SiteMapBlock() {
   return (
     <div className="rounded-2xl border border-emerald-200/60 bg-white p-6 shadow-sm">
       <h3 className="text-lg font-semibold">Site Map</h3>
-      <div className="mt-4 grid grid-cols-2 gap-6 text-sm">
+
+      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {/* Pages column */}
         <div>
           <div className="font-medium text-gray-700">Pages</div>
-          <ul className="mt-2 space-y-1">
-            <li><a href="#services" className="hover:text-[#167a7a]">Services</a></li>
-            <li><a href="#packages" className="hover:text-[#167a7a]">Packages</a></li>
-            <li><a href="#book" className="hover:text-[#167a7a]">Book</a></li>
-            <li><a href="#contact" className="hover:text-[#167a7a]">Contact</a></li>
-          </ul>
+          <div className="mt-2 space-y-2">
+            <ListLink href="#services">Services</ListLink>
+            <ListLink href="#packages">Packages</ListLink>
+            <ListLink href="#book">Book</ListLink>
+            <ListLink href="#contact">Contact</ListLink>
+          </div>
         </div>
+
+        {/* Highlights column */}
         <div>
           <div className="font-medium text-gray-700">Highlights</div>
-          <ul className="mt-2 space-y-1">
-            <li><a href="#book" className="hover:text-[#167a7a]">Request a Free Quote</a></li>
-            <li><a href="#packages" className="hover:text-[#167a7a]">Bi-Weekly (Most Popular)</a></li>
-            <li><a href="#services" className="hover:text-[#167a7a]">Snow Removal</a></li>
-            <li><a href="#services" className="hover:text-[#167a7a]">Retaining Walls & Pavers</a></li>
-          </ul>
+          <div className="mt-2 flex flex-wrap gap-2">
+            <TagLink href="#book" label="Request a Free Quote" />
+            <TagLink href="#packages" label="Bi-Weekly" badge="Most Popular" />
+            <TagLink href="#services" label="Snow Removal" />
+            <TagLink href="#services" label="Retaining Walls & Pavers" />
+          </div>
         </div>
       </div>
     </div>
+  );
+}
+
+// small helpers to add depth without changing structure
+function ListLink({ href, children }) {
+  return (
+    <a
+      href={href}
+      className="group flex items-center justify-between rounded-lg border border-emerald-100 bg-emerald-50/50 px-3 py-2 transition
+                 hover:bg-emerald-50 hover:border-emerald-200"
+    >
+      <span className="text-gray-800">{children}</span>
+      <ChevronRight className="h-4 w-4 text-emerald-700/60 transition group-hover:text-emerald-700" />
+    </a>
+  );
+}
+
+function TagLink({ href, label, badge }) {
+  return (
+    <a
+      href={href}
+      className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-sm
+                 hover:bg-emerald-100 transition"
+    >
+      <span>{label}</span>
+      {badge && (
+        <span className="rounded-full bg-emerald-600/10 text-emerald-700 px-2 py-0.5 text-xs">
+          {badge}
+        </span>
+      )}
+    </a>
   );
 }

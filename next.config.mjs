@@ -1,17 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
-    const csp = [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-      "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob:",
-      "font-src 'self' data:",
-      "connect-src 'self'",
-      "frame-ancestors 'none'",
-      "base-uri 'self'",
-      "form-action 'self' mailto:"
-    ].join("; ");
+   const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob:",
+  "font-src 'self' data:",
+  "connect-src 'self'",
+  // allow map iframes
+  "frame-src 'self' https://www.google.com https://maps.google.com https://www.openstreetmap.org",
+  "frame-ancestors 'none'",
+  "base-uri 'self'",
+  "form-action 'self' mailto:"
+].join("; ");
     return [
       {
         source: "/(.*)",
