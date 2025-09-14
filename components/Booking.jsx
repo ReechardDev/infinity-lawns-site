@@ -1,46 +1,114 @@
 // components/Booking.jsx
-import BookingForm from "@/components/BookingForm";
+import BookingForm from "./BookingForm";
 
 export default function Booking() {
   return (
-    <section id="booking" className="scroll-mt-24 py-16 md:py-24 bg-slate-50 bg-grid-slate-100">
-      <div className="mx-auto max-w-7xl px-4">
-        <h2 className="text-center text-2xl md:text-3xl font-bold">Request a Free Quote</h2>
+    <section id="booking" className="mx-auto max-w-6xl px-4 py-16">
+      <h2 className="text-center text-3xl font-semibold">Request a Free Quote</h2>
 
-        <div className="mt-8 grid gap-8 md:grid-cols-2 items-start">
-          {/* FORM */}
-          <div className="rounded-3xl border bg-grey p-6 shadow-sm">
-            <BookingForm />
-          </div>
+      <div className="mt-8 grid items-stretch gap-6 lg:grid-cols-3">
+        {/* LEFT — form (unchanged) */}
+        <div className="lg:col-span-2 rounded-2xl border border-slate-200 bg-white p-6 shadow">
+          <BookingForm />
+        </div>
 
-          {/* RIGHT COLUMN (two stacked cards) */}
-          <div className="flex flex-col gap-4">
-            <div className="rounded-3xl border bg-emerald-100 to-grey p-6 shadow-sm space-y-4">
-              <h4 className="font-semibold text-lg">How it works</h4>
-              <ol className="list-decimal list-inside text-slate-700 space-y-2">
+        {/* RIGHT — compact cards + bottom help line */}
+        <aside className="flex h-full flex-col">
+          <div className="flex-1 space-y-4">
+            {/* Card 1 — How it works */}
+            <div className="rounded-xl2 border border-emerald-200/60 bg-emerald-50 p-5 shadow-sm">
+              <h3 className="text-lg font-semibold">How it works</h3>
+              <ol className="mt-2 list-decimal space-y-1 pl-5 text-slate-700">
                 <li>Tell us about your lawn & preferred time.</li>
                 <li>We confirm by phone/text and send a quick quote.</li>
                 <li>Our insured crew shows up on schedule.</li>
               </ol>
-              <div className="text-sm text-slate-600">
-                <p className="font-medium">Need help now?</p>
-                <p>(303) 555-0112 / hello@infinitylawnsandbeyond.com</p>
-              </div>
             </div>
 
-            <div className="rounded-3xl border bg-emerald-100 p-6  space-y-3">
-              <h4 className="font-semibold text-lg">What to expect</h4>
-              <ul className="list-disc list-inside text-slate-700 space-y-1">
-                <li>Text-on-the-way reminders.</li>
-                <li>Gates closed & debris cleared before we leave.</li>
-                <li>Secure online payment after service.</li>
+            {/* Card 2 — What to expect */}
+            <div className="rounded-xl2 border border-emerald-200/60 bg-emerald-50 p-5 shadow-sm">
+              <h3 className="text-lg font-semibold">What to expect</h3>
+              <ul className="mt-2 space-y-1 text-slate-700">
+                <li>• Text-on-the-way reminders.</li>
+                <li>• Gates closed & debris cleared before we leave.</li>
+                <li>• Secure online payment after service.</li>
               </ul>
-              <p className="text-sm text-slate-600">
-                We accept Visa, Mastercard, AmEx, Cashapp, Apple Pay.
+              <p className="mt-3 text-xs text-slate-500">
+                We’re licensed & insured. Satisfaction guaranteed.
               </p>
             </div>
+
+            {/* Card 3 — Payment options (logos) */}
+            <div className="rounded-xl2 border border-emerald-200/60 bg-emerald-50 p-5 shadow-sm">
+              <h3 className="text-lg font-semibold">Payment options</h3>
+              <p className="mt-1 text-slate-700">
+                Pay securely online after service. Digital receipts emailed instantly.
+              </p>
+
+              <ul className="mt-4 flex flex-wrap items-center gap-3">
+                {/* Visa */}
+                <li className="inline-flex items-center gap-2 rounded-lg border bg-white px-3 py-2 text-sm font-medium shadow-sm">
+                  <svg viewBox="0 0 48 16" aria-hidden="true" className="h-5 w-auto">
+                    <rect width="48" height="16" rx="3" fill="#1A1F71" />
+                    <text x="7" y="12" fontSize="9" fontWeight="700" fill="#fff">VISA</text>
+                  </svg>
+                  <span className="sr-only">Visa</span>
+                </li>
+
+                {/* Mastercard */}
+                <li className="inline-flex items-center gap-2 rounded-lg border bg-white px-3 py-2 text-sm font-medium shadow-sm">
+                  <svg viewBox="0 0 40 24" aria-hidden="true" className="h-5 w-auto">
+                    <circle cx="14" cy="12" r="9" fill="#EB001B" />
+                    <circle cx="26" cy="12" r="9" fill="#F79E1B" />
+                  </svg>
+                  <span className="sr-only">Mastercard</span>
+                </li>
+
+                {/* AmEx */}
+                <li className="inline-flex items-center gap-2 rounded-lg border bg-white px-3 py-2 text-sm font-medium shadow-sm">
+                  <svg viewBox="0 0 48 16" aria-hidden="true" className="h-5 w-auto">
+                    <rect width="48" height="16" rx="3" fill="#2E77BC" />
+                    <text x="6" y="11.5" fontSize="9" fontWeight="700" fill="#fff">AMEX</text>
+                  </svg>
+                  <span className="sr-only">American Express</span>
+                </li>
+
+                {/* Cash App */}
+                <li className="inline-flex items-center gap-2 rounded-lg border bg-white px-3 py-2 text-sm font-medium shadow-sm">
+                  <svg viewBox="0 0 20 20" aria-hidden="true" className="h-5 w-5">
+                    <rect x="1" y="1" width="18" height="18" rx="4" fill="#00C244" />
+                    <path
+                      d="M9.6 6.2c-1.6 0-2.6.8-2.6 2 0 2.9 4.2 1.8 4.2 3.1 0 .5-.5.9-1.6.9-1 0-1.8-.3-2.4-.7l-.6 1.3c.7.5 1.8.8 3 .8 1.9 0 3.1-.9 3.1-2.2 0-2.9-4.2-1.8-4.2-3.1 0-.5.5-.8 1.5-.8.8 0 1.5.2 2 .4l.5-1.3c-.6-.3-1.5-.4-2.4-.4z"
+                      fill="#fff"
+                    />
+                  </svg>
+                  <span className="sr-only">Cash App</span>
+                </li>
+
+                {/* Apple Pay */}
+                <li className="inline-flex items-center gap-2 rounded-lg border bg-white px-3 py-2 text-sm font-medium shadow-sm">
+                  <svg viewBox="0 0 28 16" aria-hidden="true" className="h-5 w-auto">
+                    <path
+                      d="M9.2 3.2c.7-.9 1.9-1.6 3-1.7.3 1.2-.1 2.4-.8 3.4-.7.9-1.8 1.6-3 1.5-.3-1.1.2-2.3.8-3.2zM16 5.8c1.1 0 2 .6 2.5 1.5-.9.5-1.5 1.5-1.5 2.6 0 1.1.6 2.1 1.5 2.6-.5.9-1.4 1.5-2.5 1.5-1.1 0-2-.6-2.6-1.5-.5-.9-.5-2.1 0-3 .6-1 1.5-1.6 2.6-1.6z"
+                      fill="#000"
+                    />
+                  </svg>
+                  <span className="sr-only">Apple Pay</span>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
+
+          {/* Bottom helper for all cards */}
+          <div className="mt-4 text-sm text-slate-600">
+            Need help now?{" "}
+            <a href="tel:+13035550112" className="underline">(303) 555-0112</a>{" "}
+            /{" "}
+            <a href="mailto:hello@infinitylawnsandbeyond.com" className="underline">
+              hello@infinitylawnsandbeyond.com
+            </a>
+          </div>
+        </aside>
       </div>
     </section>
   );

@@ -10,7 +10,7 @@ export default function Contact() {
             <h3 className="font-semibold">Call or Email</h3>
             <p className="mt-2 text-slate-700">(303) 555-0112</p>
             <p className="text-slate-700">hello@infinitylawnsandbeyond.com</p>
-            <p className="mt-4 text-sm text-slate-600">Monday-Saturday</p> 7:00 am – 7:00 am
+            <p className="mt-4 text-sm text-slate-600">Monday-Saturday</p> 7:00 am – 7:00 pm
           </div>
 
           <div className="rounded-3xl border bg-emerald-50 p-6 shadow-sm">
